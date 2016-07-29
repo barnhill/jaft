@@ -3,7 +3,6 @@ package com.bradbarnhill.android.jaft;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -65,10 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu();
                 mDrawerToggle.syncState();
-                final ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(getHeaderTitle());
-                }
             }
 
             /** Called when a drawer has settled in a completely open state. */
@@ -76,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu();
                 mDrawerToggle.syncState();
-                final ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(getHeaderTitle());
-                }
             }
         };
 
@@ -122,16 +113,6 @@ public class MainActivity extends AppCompatActivity {
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(title);
-        }
-    }
-
-    private String getHeaderTitle() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            //drawer title
-            return getString(R.string.drawer_title_select_timer);
-        } else {
-            //main title
-            return getString(R.string.app_name);
         }
     }
 
