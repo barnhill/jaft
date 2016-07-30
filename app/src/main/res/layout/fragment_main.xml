@@ -6,7 +6,8 @@
     android:id="@+id/fragment_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bradbarnhill.android.jaft.MainActivityFragment"
+    style="@style/AppTheme.Screen"
+    tools:context="com.bradbarnhill.android.jaft.ui.MainActivityFragment"
     tools:showIn="@layout/activity_main">
 
     <TextView

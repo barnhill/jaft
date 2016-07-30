@@ -33,8 +33,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
     compile 'com.android.support:design:24.1.1'
     testCompile 'junit:junit:4.12'
-    //Card libs libraries
-    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
-    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
-    compile 'com.github.gabrielemariotti.cards:cardslib-recyclerview:2.1.0'
+
+    compile 'com.code-troopers.betterpickers:library:3.0.0'
 }
