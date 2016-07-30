@@ -1,8 +1,7 @@
 package com.bradbarnhill.android.jaft;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,15 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.drawer_main);
@@ -118,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void selectItem(final int position) {
         //selected new timer from drawer
+    }
+
+    public void onSettingsButtonClick(final View view) {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {

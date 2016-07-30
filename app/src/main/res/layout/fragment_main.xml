@@ -10,12 +10,15 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/timerDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_margin="50dp"
+        android:textSize="120dp"
+        tools:text="12:34"
+        tools:ignore="SpUsage"
         app:layout_constraintLeft_toLeftOf="@+id/fragment_main"
         app:layout_constraintTop_toTopOf="@+id/fragment_main"
-        app:layout_constraintRight_toRightOf="@+id/fragment_main"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_main" />
+        app:layout_constraintRight_toRightOf="@+id/fragment_main" />
 
 </android.support.constraint.ConstraintLayout>
