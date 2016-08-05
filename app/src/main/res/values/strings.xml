@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer closed</string>
+    <string name="base_time_display">00:00</string>
 </resources>
