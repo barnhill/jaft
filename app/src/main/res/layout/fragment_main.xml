@@ -14,13 +14,13 @@
         android:id="@+id/timerDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
+        android:layout_marginTop="50dp"
         android:textSize="120dp"
         android:text="@string/base_time_display"
         app:layout_constraintLeft_toLeftOf="@+id/fragment_main"
-        app:layout_constraintTop_toTopOf="@+id/fragment_main"
         app:layout_constraintRight_toRightOf="@+id/fragment_main"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main"
         tools:text="12:34"
-        tools:ignore="SpUsage"/>
+        tools:ignore="SpUsage" />
 
 </android.support.constraint.ConstraintLayout>

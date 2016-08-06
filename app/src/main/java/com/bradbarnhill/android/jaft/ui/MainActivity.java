@@ -2,6 +2,11 @@ package com.bradbarnhill.android.jaft.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,18 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.bradbarnhill.android.jaft.R;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+    private NavigationView mNavView;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -31,17 +34,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.drawer_main);
+        mNavView = (NavigationView) findViewById(R.id.drawer_nav);
 
         if (mDrawerLayout != null) {
             mDrawerLayout.setFadingEdgeLength(4);
         }
 
-        // Set the adapter for the drawer list
-        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, new ArrayList<String>()));
-
-        // Set the drawers's click listener
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        populateDrawer();
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
@@ -55,20 +54,25 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerClosed(final View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu();
-                mDrawerToggle.syncState();
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(final View drawerView) {
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu();
-                mDrawerToggle.syncState();
             }
         };
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(true);
+
+        animateFloatingActionButton();
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable final Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
     }
 
@@ -108,18 +112,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void selectItem(final int position) {
-        //selected new timer from drawer
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START))
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        else
+            super.onBackPressed();
     }
 
-    public void onSettingsButtonClick(final View view) {
-        startActivity(new Intent(this, SettingsActivity.class));
+    private void animateFloatingActionButton() {
+        final FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fabStartStop);
+        final Animation anim = AnimationUtils.loadAnimation(floatingActionButton.getContext(), R.anim.fab_in);
+        anim.setDuration(400L);
+        anim.setInterpolator(new FastOutSlowInInterpolator());
+        floatingActionButton.startAnimation(anim);
     }
 
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(final AdapterView parent, final View view, final int position, final long id) {
-            selectItem(position);
+    private void populateDrawer() {
+        final Menu menu = mNavView.getMenu();
+        final SubMenu subMenu = menu.addSubMenu(getString(R.string.drawer_stories_subheader_title));
+        for (int i = 1; i <= 22; i++) {
+            subMenu.add("SubMenu Item " + i);
         }
+    }
+
+    private void selectItem(final int position) {
+        mDrawerLayout.closeDrawer(GravityCompat.START, false);
+        //TODO selected new timer from drawer
+    }
+
+    public void onStartStopButtonClick(final View view) {
+        //TODO start and stop timer when button is clicked
+    }
+
+    public void onSettingsButtonClick(final MenuItem item) {
+        mDrawerLayout.closeDrawer(GravityCompat.START, false);
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 }
