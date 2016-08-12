@@ -31,8 +31,12 @@ public class SettingsActivity extends AppCompatActivity {
     private ArrayList<TimeElement> createCards() {
         final ArrayList<TimeElement> cards = new ArrayList<>();
 
-        final TimeElement element = new TimeElement(8, 35, 25, "Test Text");
-        cards.add(element);
+        cards.add(new TimeElement(8, 35, "Test Text"));
+        cards.add(new TimeElement(9, 36, "Test Text"));
+        cards.add(new TimeElement(10, 35, "Test Text"));
+        cards.add(new TimeElement(11, 38, "Test Text"));
+        cards.add(new TimeElement(12, 39, "Test Text"));
+        cards.add(new TimeElement(1, 40, "Test Text"));
 
         return cards;
     }

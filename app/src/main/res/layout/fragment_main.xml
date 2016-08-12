@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v7.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_main"
+    android:id="@+id/timerList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     style="@style/AppTheme.Screen"
-    tools:context="com.bradbarnhill.android.jaft.ui.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
-
-    <TextView
-        android:id="@+id/timerDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="120dp"
-        android:text="@string/base_time_display"
-        app:layout_constraintLeft_toLeftOf="@+id/fragment_main"
-        app:layout_constraintRight_toRightOf="@+id/fragment_main"
-        app:layout_constraintTop_toTopOf="@+id/fragment_main"
-        tools:text="12:34"
-        tools:ignore="SpUsage" />
-
-</android.support.constraint.ConstraintLayout>
+    tools:context=".ui.MainFragment"
+    tools:showIn="@layout/activity_main"/>

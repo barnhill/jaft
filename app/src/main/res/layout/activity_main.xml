@@ -36,10 +36,24 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:tint="@color/icons"
-            android:onClick="onStartStopButtonClick"
-            app:srcCompat="@drawable/play" />
+            android:onClick="onAddTimerClicked"
+            app:srcCompat="@drawable/alarm_plus" />
 
-        <include layout="@layout/fragment_main" />
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/main_nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity = "fill_vertical"
+            android:layout_marginBottom="?attr/actionBarSize"
+            app:layout_behavior = "@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:name="ui.MainFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v4.widget.NestedScrollView>
 
     </android.support.design.widget.CoordinatorLayout>
 

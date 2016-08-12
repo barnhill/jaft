@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.DrawerLayout;
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(true);
 
         animateFloatingActionButton();
+
+        final MainFragment frag = new MainFragment();
+
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, frag);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     @Override
@@ -131,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private void populateDrawer() {
         final Menu menu = mNavView.getMenu();
         final SubMenu subMenu = menu.addSubMenu(getString(R.string.drawer_stories_subheader_title));
-        for (int i = 1; i <= 22; i++) {
+        for (int i = 1; i <= 20; i++) {
             subMenu.add("SubMenu Item " + i);
         }
     }
@@ -141,12 +150,12 @@ public class MainActivity extends AppCompatActivity {
         //TODO selected new timer from drawer
     }
 
-    public void onStartStopButtonClick(final View view) {
-        //TODO start and stop timer when button is clicked
-    }
-
     public void onSettingsButtonClick(final MenuItem item) {
         mDrawerLayout.closeDrawer(GravityCompat.START, false);
         startActivity(new Intent(this, SettingsActivity.class));
+    }
+
+    public void onAddTimerClicked(final View view) {
+
     }
 }

@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="2dp"
             android:layout_marginTop="12dp"/>
 
         <android.support.design.widget.FloatingActionButton
@@ -31,7 +31,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:tint="@color/icons"
-            app:srcCompat="@drawable/alarm_plus" />
+            app:srcCompat="@drawable/plus" />
 
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

@@ -5,24 +5,14 @@ package com.bradbarnhill.android.jaft.models;
  */
 
 public class TimeElement {
-    private int hour;
     private int minute;
     private int seconds;
     private String text;
 
-    public TimeElement(final int hour, final int minute, final int seconds, final String text) {
-        this.hour = hour;
+    public TimeElement(final int minute, final int seconds, final String text) {
         this.minute = minute;
         this.seconds = seconds;
         this.text = text;
-    }
-
-    public int getHour() {
-        return hour;
-    }
-
-    public void setHour(final int hour) {
-        this.hour = hour;
     }
 
     public int getMinute() {

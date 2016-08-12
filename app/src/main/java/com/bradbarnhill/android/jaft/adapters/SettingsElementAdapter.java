@@ -27,7 +27,7 @@ public class SettingsElementAdapter extends RecyclerView.Adapter<SettingsElement
     @Override
     public void onBindViewHolder(final SettingsElementViewHolder holder, final int position) {
         final TimeElement element = mElements.get(position);
-        holder.time.setText(element.getHour() + ":" + element.getMinute() + ":" +element.getSeconds());
+        holder.time.setText(element.getMinute() + ":" +element.getSeconds());
         holder.text.setText(element.getText());
     }
 
