@@ -6,4 +6,5 @@
     <string name="base_time_display">00:00</string>
     <string name="drawer_settings_item_title">Settings</string>
     <string name="drawer_stories_subheader_title">Pick a timer</string>
+    <string name="content_description_start_timer">Start Timer</string>
 </resources>

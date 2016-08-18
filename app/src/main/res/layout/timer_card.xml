@@ -48,11 +48,12 @@
         </LinearLayout>
 
         <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:background="@color/bpTransparent"
-            android:src="@drawable/play"/>
+            android:src="@drawable/play"
+            android:contentDescription="@string/content_description_start_timer" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
