@@ -1,2 +1,2 @@
 # jaft
-Just a f-ing timer
+Just a timer for sailboat racing
