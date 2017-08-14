@@ -1,2 +1,2 @@
-# jaft ![Build Status](http://server.bradbarnhill.com:9500/job/Jaft/badge/icon)
+# jaft https://www.travis-ci.org/barnhill/jaft.svg?branch=master
 Just a timer for sailboat racing
