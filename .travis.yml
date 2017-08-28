@@ -18,9 +18,8 @@ android:
     - addon-google_apis-google-26
   
   licenses:
-    - 'android-sdk-preview-license-.+'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+    - android-sdk-license-.+
+    - '.+'
     
 script:
-  - ./gradlew assemble lint
+    - ./gradlew assemble lint
