@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="middle"
-                android:maxLines="1"
+                android:singleLine="true"
                 android:textColor="@color/secondary_text"
                 tools:text="The next action for this cool jaft timer will be at 08:00" />
 
